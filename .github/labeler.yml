@@ -1,0 +1,15 @@
+frontend:
+  - packages/*
+  - apps/*
+backend:
+  - server/*
+documentation:
+  - apps/docs/*
+  - apps/docs/**/*
+  - "**/*.md"
+dependencies:
+  - "**/pnpm-lock.yaml"
+  - package*.json
+.github:
+  - .github/*
+  - .github/**/*
