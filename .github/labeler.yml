@@ -13,3 +13,5 @@ dependencies:
 .github:
   - .github/*
   - .github/**/*
+packages:
+  - packages/*
