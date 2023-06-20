@@ -1,15 +1,31 @@
 {
   "name": "@seoul-awake/react-ui",
   "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
-  "license": "MIT",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./dist/index.css": "./dist/index.css"
+  },
   "scripts": {
+    "build": "pnpm build:js && pnpm build:type",
+    "build:js": "node ./esbuild.config.js",
+    "build:type": "tsc --emitDeclarationOnly",
     "lint": "eslint \"**/*.ts*\""
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "^1.11.1",
+    "@vanilla-extract/recipes": "^0.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@vanilla-extract/esbuild-plugin": "^2.2.2",
+    "esbuild": "^0.18.5",
     "eslint": "^7.32.0",
     "eslint-config-seoul-awake": "workspace:*",
     "react": "^17.0.2",
