@@ -1,0 +1,25 @@
+interface Node {
+    id: ID!
+}
+
+type Cafe implements Node {
+    id: ID!
+    name: String!
+    isChecked: Boolean!
+    location: Location!
+}
+
+type Location {
+    latitude: Float!
+    longitude: Float!
+}
+
+type Query {
+    getCafe(name: String!): Cafe
+    getCafes: [Cafe]
+}
+
+type Mutation {
+    createCafe(name: String!): Int
+    checkCafe(id: ID!): Boolean
+}

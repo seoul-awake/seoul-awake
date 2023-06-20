@@ -1,0 +1,11 @@
+type Cafe implements Node {
+    id: ID!
+    name: String!
+    isChecked: Boolean!
+    location: Location!
+}
+
+type Location {
+    latitude: Float!
+    longitude: Float!
+}
