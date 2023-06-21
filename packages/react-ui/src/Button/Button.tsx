@@ -1,4 +1,3 @@
-"use client";
 import { forwardRef, PropsWithChildren } from "react";
 import { ButtonStyle, type ButtonProps } from "./Button.css";
 

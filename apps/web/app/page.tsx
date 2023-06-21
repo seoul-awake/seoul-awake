@@ -1,9 +1,5 @@
 import { Button } from "@seoul-awake/react-ui";
 
 export default function Page() {
-  return (
-    <>
-      <Button>SEOUL AWAKE</Button>
-    </>
-  );
+  return <Button>SEOUL AWAKE</Button>;
 }

@@ -1,10 +1,5 @@
-import { Button, Header } from "ui";
+import { Button } from "@seoul-awake/react-ui";
 
 export default function Page() {
-  return (
-    <>
-      <Header text="Docs" />
-      <Button />
-    </>
-  );
+  return <Button>SEOUL AWAKE</Button>;
 }
