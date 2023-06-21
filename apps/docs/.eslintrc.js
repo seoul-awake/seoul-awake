@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ["seoul-awake"],
+  extends: ["seoul-awake", "plugin:storybook/recommended"],
 };

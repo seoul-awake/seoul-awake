@@ -1,24 +1,35 @@
 {
-  "name": "docs",
-  "version": "1.0.0",
+  "name": "@seoul-awake/docs",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@seoul-awake/react-ui": "workspace:*",
     "next": "^13.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@seoul-awake/react-ui": "workspace:*"
+    "styled-jsx": "^5.1.2"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "7.0.22",
+    "@storybook/addon-interactions": "7.0.22",
+    "@storybook/addon-links": "7.0.22",
+    "@storybook/blocks": "7.0.22",
+    "@storybook/nextjs": "7.0.22",
+    "@storybook/react": "7.0.22",
+    "@storybook/testing-library": "0.0.14-next.2",
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "eslint-config-seoul-awake": "workspace:*",
+    "eslint-plugin-storybook": "^0.6.12",
+    "storybook": "7.0.22",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.3"
   }
