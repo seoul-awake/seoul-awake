@@ -6,8 +6,8 @@ build/
 !**/src/test/**/build/
 
 # yml
-/src/main/resources/application-db.yml
-/src/main/resources/application-graphql.yml
+!/src/main/resources/application.yml
+/src/main/resources/*.yml
 
 ### STS ###
 .apt_generated
