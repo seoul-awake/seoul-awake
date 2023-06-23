@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @Getter
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Location {
+public class Address {
     @Column
-    private double latitude;
-    private double longitude;
+    private String normalAddress;
+    private String roadAddress;
 
-    public Location(double latitude, double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    public Address(String normalAddress, String roadAddress) {
+        this.normalAddress = normalAddress;
+        this.roadAddress = roadAddress;
     }
 }
