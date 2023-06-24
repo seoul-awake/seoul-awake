@@ -1,4 +1,4 @@
-package com.seoulawake.backend.global;
+package com.seoulawake.backend.global.jpa;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;

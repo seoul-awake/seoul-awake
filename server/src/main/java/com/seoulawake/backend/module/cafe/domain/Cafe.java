@@ -1,6 +1,6 @@
 package com.seoulawake.backend.module.cafe.domain;
 
-import com.seoulawake.backend.global.BaseEntity;
+import com.seoulawake.backend.global.jpa.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -23,6 +23,8 @@ public class Cafe extends BaseEntity {
     private String name;
     private boolean isChecked;
 
+    @Embedded
+    private Address address;
     @Embedded
     private Location location;
 

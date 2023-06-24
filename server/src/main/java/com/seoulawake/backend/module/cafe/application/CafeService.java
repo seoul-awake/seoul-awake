@@ -1,7 +1,9 @@
 package com.seoulawake.backend.module.cafe.application;
 
+import com.seoulawake.backend.infra.kakao.KakaoApiTemplate;
+import com.seoulawake.backend.infra.kakao.dto.request.LocalGetAddressRequest;
+import com.seoulawake.backend.infra.kakao.dto.response.LocalGetAddressResponse;
 import com.seoulawake.backend.module.cafe.domain.Cafe;
-import com.seoulawake.backend.module.cafe.domain.Location;
 import com.seoulawake.backend.module.cafe.domain.repository.CafeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -15,15 +17,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CafeService {
     private final CafeRepository cafeRepository;
+    private final KakaoApiTemplate kakaoApiTemplate;
 
     @Transactional(readOnly = true)
     public List<Cafe> getCafes() {
         return cafeRepository.findAll();
     }
 
-    public Long create(String name) {
-        Cafe cafe = new Cafe(name, new Location(1L, 1L)); // todo: kakao api
-        return cafeRepository.save(cafe).getId();
+    public Cafe create(String address) {
+        LocalGetAddressRequest request = new LocalGetAddressRequest(address);
+        LocalGetAddressResponse response = kakaoApiTemplate.execute(request, LocalGetAddressResponse.class);
+
+        Cafe cafe = new Cafe(null, null); // todo: apply api result
+        return cafeRepository.save(cafe);
     }
 
     public boolean checked(Long id) {

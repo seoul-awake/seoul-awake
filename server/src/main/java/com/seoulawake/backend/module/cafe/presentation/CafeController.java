@@ -26,7 +26,7 @@ public class CafeController {
     }
 
     @MutationMapping
-    public Long createCafe(@Argument String name) {
+    public Cafe createCafe(@Argument String name) {
         return cafeService.create(name);
     }
 

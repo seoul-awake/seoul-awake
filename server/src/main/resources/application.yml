@@ -3,3 +3,4 @@ spring:
     include:
       - db
       - graphql
+      - kakao

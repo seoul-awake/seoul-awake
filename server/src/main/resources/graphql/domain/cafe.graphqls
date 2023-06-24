@@ -2,10 +2,16 @@ type Cafe implements Node {
     id: ID!
     name: String!
     isChecked: Boolean!
+    address: Address!
     location: Location!
 }
 
 type Location {
     latitude: Float!
     longitude: Float!
+}
+
+type Address {
+    normalAddress: String!
+    roadAddress: String!
 }
