@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        working-directory: ./packages/docs
+        working-directory: ./apps/docs
 
       - name: Deploy to Chromatic
         uses: chromaui/action@v1
