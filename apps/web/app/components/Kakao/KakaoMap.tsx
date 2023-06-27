@@ -1,9 +1,7 @@
 import type { KakaoMapProps } from "@seoul-awake/types";
 import type { PropsWithChildren } from "react";
 import { MapProvider } from "../../contexts";
-import Button from "./Button";
 import Container from "./Container";
-import Marker from "./Marker";
 
 // 서울의 경도, 위도
 export const DEFAULT_INITIAL_CENTER = { latitude: 37.5665, longitude: 126.978 };
@@ -49,8 +47,5 @@ const KakaoMap = ({
     </MapProvider>
   );
 };
-
-KakaoMap.Button = Button;
-KakaoMap.Marker = Marker;
 
 export default KakaoMap;
