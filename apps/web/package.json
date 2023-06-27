@@ -8,12 +8,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@seoul-awake/react-ui": "workspace:*",
+    "framer-motion": "^10.12.17",
     "next": "^13.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@seoul-awake/react-ui": "workspace:*"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@seoul-awake/types": "workspace:*",
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
