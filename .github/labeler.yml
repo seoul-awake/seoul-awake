@@ -1,13 +1,15 @@
 frontend:
-  - packages/**/*
-  - apps/**/*
+  - all:
+      - changed-files: ["packages/**/*", "apps/**/*"]
 backend:
-  - server/**/*
+  - all:
+      - changed-files: ["server/**/*"]
 documentation:
-  - apps/docs/**/*
-  - "**/*.md"
-dependencies:
-  - pnpm*.yaml
-  - package*.json
+  - all:
+      - changed-files: ["apps/docs/**/*", "**/*.md"]
+documentation:
+  - all:
+      - changed-files: ["pnpm*.yaml", "package*.json"]
 .github:
-  - .github/**/*
+  - all:
+      - changed-files: [".github"]
