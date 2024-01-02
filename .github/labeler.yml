@@ -1,12 +1,12 @@
-frontend:
-- changed-files:
-  - any-glob-to-any-file: ["packages/**/*", "apps/**/*"]
-backend:
-- changed-files:
-  - any-glob-to-any-file: ["server/**/*"]
-documentation:
-- changed-files:
-  - any-glob-to-any-file: ["apps/docs/**/*", "**/*.md"]
-documentation:
-- changed-files:
-  - any-glob-to-any-file: ["pnpm*.yaml", "package*.json"]
+"frontend":
+  - changed-files:
+      - any-glob-to-any-file: ["packages/**/*", "apps/**/*"]
+"backend":
+  - changed-files:
+      - any-glob-to-any-file: ["server/**/*"]
+"documentation":
+  - changed-files:
+      - any-glob-to-any-file: ["apps/docs/**/*", "**/*.md"]
+"dependencies":
+  - changed-files:
+      - any-glob-to-any-file: ["pnpm*.yaml", "package*.json"]
