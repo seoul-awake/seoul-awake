@@ -1,17 +1,18 @@
-frontend:
-  - packages/*
-  - apps/*
-backend:
-  - server/*
-documentation:
-  - apps/docs/*
-  - apps/docs/**/*
-  - "**/*.md"
-dependencies:
-  - "**/pnpm-lock.yaml"
-  - package*.json
-.github:
-  - .github/*
-  - .github/**/*
-packages:
-  - packages/*
+'frontend':
+  - changed-files:
+      - any-glob-to-any-file: packages/**/*
+      - any-glob-to-any-file: apps/**/*
+
+'backend':
+  - changed-files:
+      - any-glob-to-any-file: server/**/*
+
+'documentation':
+  - changed-files:
+      - any-glob-to-any-file: apps/docs/**/*
+      - any-glob-to-any-file: '**/*.md'
+
+'dependencies':
+  - changed-files:
+      - any-glob-to-any-file: 'pnpm*.yaml'
+      - any-glob-to-any-file: 'package*.json'

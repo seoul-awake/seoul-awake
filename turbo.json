@@ -4,22 +4,14 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "dist/**",
-        "storybook-static/**"
-      ]
+      "outputs": [".next/**", "!.next/cache/**"]
     },
-    "lint": {},
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
     }
-  },
-  "globalEnv": [
-    "NODE_ENV",
-    "NEXT_PUBLIC_API_MOCKING",
-    "NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY"
-  ]
+  }
 }
