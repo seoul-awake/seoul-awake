@@ -1,17 +1,13 @@
 frontend:
-  - packages/*
-  - apps/*
+  - packages/**/*
+  - apps/**/*
 backend:
-  - server/*
+  - server/**/*
 documentation:
-  - apps/docs/*
   - apps/docs/**/*
   - "**/*.md"
 dependencies:
-  - "**/pnpm-lock.yaml"
+  - pnpm*.yaml
   - package*.json
 .github:
-  - .github/*
   - .github/**/*
-packages:
-  - packages/*
