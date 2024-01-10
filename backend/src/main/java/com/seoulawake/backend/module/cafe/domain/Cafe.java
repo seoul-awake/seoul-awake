@@ -1,6 +1,7 @@
 package com.seoulawake.backend.module.cafe.domain;
 
 import com.seoulawake.backend.global.jpa.BaseEntity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -16,26 +17,26 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Cafe extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cafe_id")
-    private Long id;
-    private String name;
-    private boolean isChecked;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cafe_id")
+	private Long id;
+	private String name;
+	private boolean isChecked;
 
-    @Embedded
-    private Address address;
-    @Embedded
-    private Location location;
+	@Embedded
+	private Address address;
+	@Embedded
+	private Location location;
 
-    @Builder
-    public Cafe(String name, Location location) {
-        this.name = name;
-        this.isChecked = false;
-        this.location = location;
-    }
+	@Builder
+	public Cafe(String name, Location location) {
+		this.name = name;
+		this.isChecked = false;
+		this.location = location;
+	}
 
-    public void checked() {
-        this.isChecked = true;
-    }
+	public void checked() {
+		this.isChecked = true;
+	}
 }

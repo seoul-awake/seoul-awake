@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    id 'checkstyle'
 }
 
 group = "${projectGroup}"
@@ -15,6 +16,7 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
+apply from: 'gradle/check-style.gradle'
 
 dependencies {
     // db
