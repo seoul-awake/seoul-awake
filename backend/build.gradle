@@ -11,12 +11,8 @@ version = "${applicationVersion}"
 jar.enabled = false
 java.sourceCompatibility = "${javaVersion}"
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
 apply from: 'gradle/check-style.gradle'
+apply from: 'gradle/lombok.gradle'
 
 dependencies {
     // db
@@ -29,11 +25,7 @@ dependencies {
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // utils
-    annotationProcessor 'org.projectlombok:lombok'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
+    // bean validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     // test
