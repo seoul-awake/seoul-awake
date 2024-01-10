@@ -1,24 +1,19 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.0'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
 }
 
-group = 'com.seoulawake'
-version = '0.0.1-SNAPSHOT'
+group = "${projectGroup}"
+version = "${applicationVersion}"
 
-java {
-    sourceCompatibility = '17'
-}
+jar.enabled = false
+java.sourceCompatibility = "${javaVersion}"
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
@@ -43,6 +38,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.graphql:spring-graphql-test'
     testImplementation 'org.assertj:assertj-core:3.24.2'
+}
+
+repositories {
+    mavenCentral()
 }
 
 tasks.named('test') {
