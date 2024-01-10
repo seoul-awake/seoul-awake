@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Address {
-    @Column
-    private String normalAddress;
-    private String roadAddress;
+	@Column
+	private String normalAddress;
+	private String roadAddress;
 
-    public Address(String normalAddress, String roadAddress) {
-        this.normalAddress = normalAddress;
-        this.roadAddress = roadAddress;
-    }
+	public Address(String normalAddress, String roadAddress) {
+		this.normalAddress = normalAddress;
+		this.roadAddress = roadAddress;
+	}
 }

@@ -1,25 +1,22 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.0'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    id 'checkstyle'
+    id 'com.epages.restdocs-api-spec' version "${restdocsApiSpecVersion}"
+    id 'org.hidetake.swagger.generator' version "${swaggerGeneratorVersion}"
 }
 
-group = 'com.seoulawake'
-version = '0.0.1-SNAPSHOT'
+group = "${projectGroup}"
+version = "${applicationVersion}"
 
-java {
-    sourceCompatibility = '17'
-}
+jar.enabled = false
+java.sourceCompatibility = "${javaVersion}"
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
-repositories {
-    mavenCentral()
-}
+apply from: 'gradle/check-style.gradle'
+apply from: 'gradle/lombok.gradle'
+apply from: 'gradle/test-support.gradle'
+apply from: 'gradle/rest-docs.gradle'
 
 dependencies {
     // db
@@ -32,17 +29,17 @@ dependencies {
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // utils
-    annotationProcessor 'org.projectlombok:lombok'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
+    // bean validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.graphql:spring-graphql-test'
     testImplementation 'org.assertj:assertj-core:3.24.2'
+}
+
+repositories {
+    mavenCentral()
 }
 
 tasks.named('test') {
