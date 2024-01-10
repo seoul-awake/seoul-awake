@@ -13,6 +13,7 @@ java.sourceCompatibility = "${javaVersion}"
 
 apply from: 'gradle/check-style.gradle'
 apply from: 'gradle/lombok.gradle'
+apply from: 'gradle/test-support.gradle'
 
 dependencies {
     // db
