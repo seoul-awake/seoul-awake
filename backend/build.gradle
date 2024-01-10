@@ -28,16 +28,8 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     runtimeOnly 'com.h2database:h2'
 
-    // web
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-
-    // bean validation
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-
-    // test
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.graphql:spring-graphql-test'
-    testImplementation 'org.assertj:assertj-core:3.24.2'
+    // jasypt
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
 }
 
 repositories {
