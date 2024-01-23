@@ -1,9 +1,0 @@
-compileJava.options.encoding = 'UTF-8'
-compileTestJava.options.encoding = 'UTF-8'
-
-checkstyle {
-    maxWarnings = 0
-    configFile = file("config/checkstyle/naver-checkstyle-rules.xml")
-    configProperties = ["suppressionFile": "config/checkstyle/naver-checkstyle-suppressions.xml"]
-    toolVersion = "${checkStyleVersion}"
-}

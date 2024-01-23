@@ -3,7 +3,7 @@ type Cafe implements Node {
     name: String!
     isChecked: Boolean!
     address: Address!
-    location: Location!
+    coordinates: Location!
 }
 
 type Location {
