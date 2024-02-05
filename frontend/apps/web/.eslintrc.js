@@ -11,4 +11,7 @@ module.exports = {
     '@stylexjs/valid-styles': 'error',
     'no-unused-vars': 'off',
   },
+  globals: {
+    naver: 'readonly',
+  },
 };
