@@ -2,16 +2,21 @@
 
 import * as stylex from '@stylexjs/stylex';
 import Script from 'next/script';
-import { useRef } from 'react';
-
-type NaverMap = naver.maps.Map;
+import { useMapStore } from '../../../stores/MapStore';
 
 const Map = () => {
-  const mapRef = useRef<NaverMap | null>(null);
+  const setMap = useMapStore((state) => state.setMap);
 
   const initializeMap = () => {
-    const map = new window.naver.maps.Map('map', {});
-    mapRef.current = map;
+    const mapOptions = {
+      zoom: 12,
+      minZoom: 11,
+      scaleControl: false,
+      mapDataControl: false,
+    };
+
+    const map = new window.naver.maps.Map('map', mapOptions);
+    setMap(map);
   };
 
   return (
@@ -21,15 +26,26 @@ const Map = () => {
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP}`}
         onReady={initializeMap}
       />
-      <section id="map" {...stylex.props(styles.map)} />
+      <div id="map" {...stylex.props(styles.map)} />
     </>
   );
 };
 
 export default Map;
 
+const scale = stylex.keyframes({
+  from: { transform: 'scales(0)' },
+  to: { transform: 'scales(1)' },
+});
+
 const styles = stylex.create({
   map: {
     minHeight: '100vh',
+  },
+  icon: {
+    animationName: scale,
+    animationDuration: '2s',
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
   },
 });

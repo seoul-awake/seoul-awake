@@ -20,12 +20,12 @@ export default function RootLayout({
         <aside {...stylex.props(styles['side-section'])}>
           <h1 {...stylex.props(styles.title)}>
             <Image
+              {...stylex.props(styles.logo)}
               width={100}
               height={100}
               alt="logo"
               src="/logo.webp"
-              priority={true}
-              {...stylex.props(styles.logo)}
+              priority
             />
             SEOUL AWAKE
           </h1>
