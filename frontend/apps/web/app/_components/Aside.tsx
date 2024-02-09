@@ -40,7 +40,7 @@ const styles = stylex.create({
     position: 'fixed',
     top: '20px',
     left: '20px',
-    zIndex: 101,
+    zIndex: 102,
     cursor: 'pointer',
     borderRadius: '16px',
     display: 'flex',
