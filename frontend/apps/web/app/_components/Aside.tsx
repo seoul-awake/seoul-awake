@@ -42,7 +42,7 @@ const styles = stylex.create({
     left: '20px',
     zIndex: 102,
     cursor: 'pointer',
-    borderRadius: '16px',
+    borderRadius: '6px',
     display: 'flex',
     scale: {
       default: 1,
@@ -52,6 +52,6 @@ const styles = stylex.create({
     transition: 'scale 0.3s ease',
   },
   logo: {
-    borderRadius: '16px',
+    borderRadius: '4px',
   },
 });
