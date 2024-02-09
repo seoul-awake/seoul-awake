@@ -2,7 +2,7 @@ package seoulawake.server.module.cafe.application
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import seoulawake.server.global.util.entityNotFound
+import seoulawake.server.global.extension.entityNotFound
 import seoulawake.server.module.cafe.domain.Address
 import seoulawake.server.module.cafe.domain.Cafe
 import seoulawake.server.module.cafe.domain.CafeRepository
