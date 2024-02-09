@@ -1,9 +1,9 @@
 'use client';
 
+import { MODAL, useModal } from '@/hooks';
 import * as stylex from '@stylexjs/stylex';
 import { HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
-import { MODAL, useModal } from '../../../hooks/useModal';
 
 interface DrawerProps extends HTMLAttributes<HTMLElement> {
   opened?: boolean;
@@ -11,7 +11,7 @@ interface DrawerProps extends HTMLAttributes<HTMLElement> {
   backgroundScroll?: boolean;
 }
 
-export const Drawer = ({
+const Drawer = ({
   opened = true,
   backgroundScroll = false,
   onClose,
@@ -51,6 +51,8 @@ export const Drawer = ({
     : null;
 };
 
+export default Drawer;
+
 const fadeIn = stylex.keyframes({
   from: { opacity: 0 },
   to: { opacity: 1 },
@@ -70,6 +72,8 @@ const slideOutLeft = stylex.keyframes({
   from: { transform: 'translateX(-100%)' },
   to: { transform: 'translateX(0)' },
 });
+
+const DARK = '@media (prefers-color-scheme: dark)';
 
 const styles = stylex.create({
   modalContainer: {
@@ -98,11 +102,19 @@ const styles = stylex.create({
     height: '100%',
     maxHeight: '100%',
     overflowY: 'auto',
-    backgroundColor: 'white',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     width: '200px',
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: '0 6px 6px 0',
+    backgroundColor: {
+      default: 'white',
+      [DARK]: '#171717',
+    },
+    color: {
+      default: '#171717',
+      [DARK]: 'white',
+    },
   },
   modalContainerFadeIn: {
     animationName: fadeIn,

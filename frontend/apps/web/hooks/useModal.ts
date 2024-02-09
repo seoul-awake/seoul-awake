@@ -11,10 +11,7 @@ export enum MODAL {
   OPENED = 2,
 }
 
-export const useModal = ({
-  opened,
-  closingDuration,
-}: UseModalClosingParams) => {
+const useModal = ({ opened, closingDuration }: UseModalClosingParams) => {
   const [state, setState] = useState(opened ? MODAL.OPENED : MODAL.CLOSED);
 
   useEffect(() => {
@@ -41,3 +38,5 @@ export const useModal = ({
 
   return state;
 };
+
+export default useModal;

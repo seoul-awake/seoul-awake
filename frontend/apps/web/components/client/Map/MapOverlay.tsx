@@ -8,7 +8,7 @@ import React, {
   useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { useMapStore } from '../../../stores/MapStore';
+import { useMapStore } from '@/stores';
 
 type Props = {
   position: { lat: number; lng: number };

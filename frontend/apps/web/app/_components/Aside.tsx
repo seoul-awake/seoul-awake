@@ -1,9 +1,9 @@
 'use client';
 
+import { Drawer } from '@/components/client';
 import * as stylex from '@stylexjs/stylex';
-import { useState } from 'react';
-import { Drawer } from '../../components/client/Drawer/Drawer';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const Aside = () => {
   const [isDrawerOpened, setIsDrawerOpened] = useState(false);
@@ -42,10 +42,16 @@ const styles = stylex.create({
     left: '20px',
     zIndex: 102,
     cursor: 'pointer',
-    borderRadius: '16px',
+    borderRadius: '6px',
     display: 'flex',
+    scale: {
+      default: 1,
+      ':hover': 1.05,
+      ':active': 0.95,
+    },
+    transition: 'scale 0.3s ease',
   },
   logo: {
-    borderRadius: '16px',
+    borderRadius: '4px',
   },
 });
