@@ -2,7 +2,7 @@ import './globals.css';
 
 import * as stylex from '@stylexjs/stylex';
 import type { Metadata } from 'next';
-import Aside from './_components/Aside';
+import { Aside } from './_components';
 
 export const metadata = {
   title: 'Seoul Awake',
@@ -23,8 +23,6 @@ export default function RootLayout({
     </html>
   );
 }
-
-const DARK = '@media (prefers-color-scheme: dark)';
 
 const styles = stylex.create({
   html: {

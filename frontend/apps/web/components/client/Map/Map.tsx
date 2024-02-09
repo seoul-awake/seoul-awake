@@ -1,8 +1,8 @@
 'use client';
 
+import { useMapStore } from '@/stores';
 import * as stylex from '@stylexjs/stylex';
 import Script from 'next/script';
-import { useMapStore } from '../../../stores/MapStore';
 
 const Map = () => {
   const setMap = useMapStore((state) => state.setMap);

@@ -1,5 +1,4 @@
-import Map from '../components/client/Map/Map';
-import MapOverlay from '../components/client/Map/MapOverlay';
+import { Map, MapOverlay } from '@/components/client';
 
 const locations = [
   { lat: 37.526072, lng: 126.864301 }, // Mok-dong station
