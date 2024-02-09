@@ -73,6 +73,8 @@ const slideOutLeft = stylex.keyframes({
   to: { transform: 'translateX(0)' },
 });
 
+const DARK = '@media (prefers-color-scheme: dark)';
+
 const styles = stylex.create({
   modalContainer: {
     position: 'fixed',
@@ -100,11 +102,15 @@ const styles = stylex.create({
     height: '100%',
     maxHeight: '100%',
     overflowY: 'auto',
-    backgroundColor: 'white',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     width: '200px',
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: '0 6px 6px 0',
+    backgroundColor: {
+      default: 'white',
+      [DARK]: '#171717',
+    },
   },
   modalContainerFadeIn: {
     animationName: fadeIn,
