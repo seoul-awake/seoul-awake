@@ -2,8 +2,8 @@ import Map from '../components/client/Map/Map';
 import MapOverlay from '../components/client/Map/MapOverlay';
 
 const locations = [
-  { lat: 37.526072, lng: 126.864301 }, // 목동
-  { lat: 37.6438741, lng: 126.6690268 }, // 장기
+  { lat: 37.526072, lng: 126.864301 }, // Mok-dong station
+  { lat: 37.6438741, lng: 126.6690268 }, // Janggi station
 ];
 
 export default function Home() {
