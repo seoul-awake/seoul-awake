@@ -1,9 +1,9 @@
 'use client';
 
 import * as stylex from '@stylexjs/stylex';
-import { HTMLAttributes, useEffect, useState } from 'react';
+import { HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
-import { useModal } from '../../../hooks/useModal';
+import { MODAL, useModal } from '../../../hooks/useModal';
 
 interface DrawerProps extends HTMLAttributes<HTMLElement> {
   opened?: boolean;
@@ -18,22 +18,17 @@ export const Drawer = ({
   children,
   ...restAsideProps
 }: DrawerProps) => {
-  const [isClient, setIsClient] = useState(false);
   const openingTransition = useModal({
     opened,
     closingDuration: 200,
   });
 
-  useEffect(() => {
-    setIsClient(true);
-  }, [opened]);
-
-  return isClient && openingTransition
+  return openingTransition
     ? createPortal(
         <div
           {...stylex.props(
             styles.modalContainer,
-            openingTransition !== 'CLOSED'
+            openingTransition !== MODAL.CLOSING
               ? styles.modalContainerFadeIn
               : styles.modalContainerFadeOut,
           )}
@@ -42,7 +37,7 @@ export const Drawer = ({
           <aside
             {...stylex.props(
               styles.modalWrap,
-              openingTransition !== 'CLOSED'
+              openingTransition !== MODAL.CLOSING
                 ? styles.modalWrapSlideOut
                 : styles.modalWrapSlideIn,
             )}
@@ -61,9 +56,9 @@ const fadeIn = stylex.keyframes({
   to: { opacity: 1 },
 });
 
-const slideInBottom = stylex.keyframes({
-  from: { transform: 'translateY(100%)' },
-  to: { transform: 'translateY(0)' },
+const slideInLeft = stylex.keyframes({
+  from: { transform: 'translateX(0)' },
+  to: { transform: 'translateX(-100%)' },
 });
 
 const fadeOut = stylex.keyframes({
@@ -71,9 +66,9 @@ const fadeOut = stylex.keyframes({
   to: { opacity: 0 },
 });
 
-const slideOutBottom = stylex.keyframes({
-  from: { transform: 'translateY(0)' },
-  to: { transform: 'translateY(100%)' },
+const slideOutLeft = stylex.keyframes({
+  from: { transform: 'translateX(-100%)' },
+  to: { transform: 'translateX(0)' },
 });
 
 const styles = stylex.create({
@@ -100,11 +95,14 @@ const styles = stylex.create({
   modalWrap: {
     display: 'flex',
     flexDirection: 'column',
+    height: '100%',
     maxHeight: '100%',
     overflowY: 'auto',
     backgroundColor: 'white',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    width: '160px',
+    width: '200px',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   modalContainerFadeIn: {
     animationName: fadeIn,
@@ -117,12 +115,12 @@ const styles = stylex.create({
     animationFillMode: 'forwards',
   },
   modalWrapSlideIn: {
-    animationName: slideInBottom,
+    animationName: slideInLeft,
     animationDuration: '0.2s',
     animationFillMode: 'forwards',
   },
   modalWrapSlideOut: {
-    animationName: slideOutBottom,
+    animationName: slideOutLeft,
     animationDuration: '0.2s',
     animationFillMode: 'forwards',
   },

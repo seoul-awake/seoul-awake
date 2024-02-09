@@ -5,21 +5,23 @@ interface UseModalClosingParams {
   closingDuration?: number;
 }
 
-type ModalClosingState = 'CLOSED' | 'CLOSING' | 'OPENED';
+export enum MODAL {
+  CLOSED = 0,
+  CLOSING = 1,
+  OPENED = 2,
+}
 
 export const useModal = ({
   opened,
   closingDuration,
 }: UseModalClosingParams) => {
-  const [state, setState] = useState<ModalClosingState>(
-    opened ? 'OPENED' : 'CLOSED',
-  );
+  const [state, setState] = useState(opened ? MODAL.OPENED : MODAL.CLOSED);
 
   useEffect(() => {
-    if (opened) setState('OPENED');
+    if (opened) setState(MODAL.OPENED);
     else {
       setState((prev) => {
-        if (prev === 'OPENED') return 'CLOSING';
+        if (prev === MODAL.OPENED) return MODAL.CLOSING;
 
         return prev;
       });
@@ -27,8 +29,11 @@ export const useModal = ({
   }, [opened]);
 
   useEffect(() => {
-    if (state === 'CLOSING') {
-      const closeTimer = setTimeout(() => setState('CLOSED'), closingDuration);
+    if (state === MODAL.CLOSING) {
+      const closeTimer = setTimeout(
+        () => setState(MODAL.CLOSED),
+        closingDuration,
+      );
 
       return () => clearTimeout(closeTimer);
     }
