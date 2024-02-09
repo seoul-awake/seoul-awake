@@ -42,6 +42,8 @@ const styles = stylex.create({
     left: '20px',
     zIndex: 101,
     cursor: 'pointer',
+    borderRadius: '16px',
+    display: 'flex',
   },
   logo: {
     borderRadius: '16px',
