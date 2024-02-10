@@ -7,9 +7,6 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.test.web.servlet.ResultActions;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
 public class RestDocument {
 	private final String identifier;
 	private final String tag;
@@ -50,13 +47,15 @@ public class RestDocument {
 		}
 	}
 
-	@NoArgsConstructor(access = AccessLevel.PRIVATE)
 	public static class RestDocumentBuilder {
 		private String identifier;
 		private ApiTag tag;
 		private String summary;
 		private String description;
 		private ResultActions result;
+
+		private RestDocumentBuilder() {
+		}
 
 		public RestDocumentBuilder identifier(String identifier) {
 			this.identifier = identifier;

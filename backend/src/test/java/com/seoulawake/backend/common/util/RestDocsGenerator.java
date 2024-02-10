@@ -26,12 +26,11 @@ import com.epages.restdocs.apispec.ResourceSnippetParameters;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 class RestDocsGenerator {
 	private static final String INITIAL_PATH = "";
+
+	private RestDocsGenerator() {
+	}
 
 	public static RestDocumentationResultHandler generate(
 		String identifier,
