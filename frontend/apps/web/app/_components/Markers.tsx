@@ -1,6 +1,7 @@
 'use client';
 
 import { MapOverlay } from '@/components/client';
+import { animations } from '@/styles/index.stylex';
 import * as stylex from '@stylexjs/stylex';
 
 const locations = [
@@ -18,17 +19,12 @@ const Markers = () => {
 
 export default Markers;
 
-const fadeInAndScale = stylex.keyframes({
-  '0%': { opacity: 0, transform: 'scale(0)' },
-  '100%': { opacity: 1, transform: 'scale(1)' },
-});
-
 const styles = stylex.create({
   icon: {
     backgroundColor: 'white',
     padding: '10px',
     borderRadius: '8px',
-    animationName: fadeInAndScale,
+    animationName: animations.fadeInAndScale,
     animationDuration: '0.3s',
     animationTimingFunction: 'linear',
     animationFillMode: 'forwards',

@@ -1,4 +1,5 @@
-import * as stylex from '@stylexjs/stylex';
+import { colorTokens, animations } from '@/styles/index.stylex';
+import stylex from '@stylexjs/stylex';
 import React from 'react';
 
 interface SpinnerProps {
@@ -22,18 +23,6 @@ const Spinner = ({ size = 'medium' }: SpinnerProps) => {
 
 export default Spinner;
 
-const rotateAnimation = stylex.keyframes({
-  '0%': {
-    transform: 'rotate(0deg) translateX(20px) rotate(0deg)',
-  },
-  '50%': {
-    transform: 'rotate(180deg) translateX(20px) rotate(-180deg)',
-  },
-  '100%': {
-    transform: 'rotate(360deg) translateX(20px) rotate(-360deg)',
-  },
-});
-
 const styles = stylex.create({
   spinner: (size: 'medium' | 'large') => ({
     display: 'inline-flex',
@@ -47,9 +36,9 @@ const styles = stylex.create({
     position: 'absolute',
     width: `${sizeMap[size].circle}px`,
     height: `${sizeMap[size].circle}px`,
-    backgroundColor: '#F5B343',
+    backgroundColor: colorTokens.primary,
     borderRadius: '50%',
-    animationName: rotateAnimation,
+    animationName: animations.rotateAnimation,
     animationDuration: '5s',
     animationTimingFunction: 'linear',
     animationIterationCount: 'infinite',
@@ -59,7 +48,7 @@ const styles = stylex.create({
   centerCircle: (size: 'medium' | 'large') => ({
     width: `${sizeMap[size].centerCircle}px`,
     height: `${sizeMap[size].centerCircle}px`,
-    backgroundColor: '#F5B343',
+    backgroundColor: colorTokens.primary,
     borderRadius: '50%',
   }),
 });

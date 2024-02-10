@@ -1,9 +1,10 @@
 import { Map } from '@/components/client';
-import { Markers } from './_components';
+import { Aside, Markers } from './_components';
 
 export default function Home() {
   return (
     <>
+      <Aside />
       <Map />
       <Markers />
     </>
