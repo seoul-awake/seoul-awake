@@ -47,7 +47,7 @@ const MapOverlay = ({ position, children }: MapOverlayProps) => {
     return () => {
       customOverlay.setMap(null);
     };
-  }, [map, position.lat, position.lng]);
+  }, [map, position]);
 
   return createPortal(children, containerRef.current);
 };
