@@ -1,4 +1,4 @@
-package com.seoulawake.backend.common.util;
+package seoulawake.server.common.util;
 
 import static java.util.Objects.*;
 
