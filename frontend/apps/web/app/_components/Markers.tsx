@@ -1,7 +1,7 @@
 'use client';
 
 import { MapOverlay } from '@/components/client';
-import { animations } from '@/styles/animations.stylex';
+import { animations } from '@/styles/index.stylex';
 import * as stylex from '@stylexjs/stylex';
 
 const locations = [

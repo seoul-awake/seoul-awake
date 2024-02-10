@@ -1,7 +1,7 @@
 'use client';
 
 import { MODAL, useModal } from '@/hooks';
-import { animations } from '@/styles/animations.stylex';
+import { animations } from '@/styles/index.stylex';
 import * as stylex from '@stylexjs/stylex';
 import { HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';

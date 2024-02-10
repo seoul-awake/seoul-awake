@@ -1,5 +1,4 @@
-import { animations } from '@/styles/animations.stylex';
-import { colorTokens } from '@/styles/colorTokens.stylex';
+import { colorTokens, animations } from '@/styles/index.stylex';
 import stylex from '@stylexjs/stylex';
 import React from 'react';
 
