@@ -111,6 +111,10 @@ const styles = stylex.create({
       default: 'white',
       [DARK]: '#171717',
     },
+    color: {
+      default: '#171717',
+      [DARK]: 'white',
+    },
   },
   modalContainerFadeIn: {
     animationName: fadeIn,
