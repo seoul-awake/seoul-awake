@@ -13,7 +13,7 @@ export default function Home() {
         <MapOverlay key={position.lat} position={position}>
           <div
             style={{
-              backgroundColor: 'black',
+              backgroundColor: 'white',
               padding: '10px',
               borderRadius: '8px',
             }}
