@@ -6,14 +6,14 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const Aside = () => {
-  const [isDrawerOpened, setIsDrawerOpened] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
 
   return (
     <>
       <button
         {...stylex.props(styles.menu)}
         type="button"
-        onClick={() => setIsDrawerOpened((prev) => !prev)}
+        onClick={() => setIsOpened((prev) => !prev)}
       >
         <Image
           {...stylex.props(styles.logo)}
@@ -24,7 +24,7 @@ const Aside = () => {
           priority
         />
       </button>
-      <Drawer opened={isDrawerOpened} onClose={() => setIsDrawerOpened(false)}>
+      <Drawer opened={isOpened} onClose={() => setIsOpened(false)}>
         tooooo1
       </Drawer>
     </>

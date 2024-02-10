@@ -9,6 +9,9 @@ module.exports = {
         dev: process.env.NODE_ENV === 'development',
         genConditionalClasses: true,
         treeshakeCompensation: true,
+        aliases: {
+          '@/*': [path.join(__dirname, '*')],
+        },
         unstable_moduleResolution: {
           type: 'commonJS',
           rootDir: path.join(__dirname, '../..'),

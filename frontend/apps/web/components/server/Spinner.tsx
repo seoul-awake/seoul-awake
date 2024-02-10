@@ -1,16 +1,20 @@
 import * as stylex from '@stylexjs/stylex';
 import React from 'react';
 
-const Spinner = () => {
+interface SpinnerProps {
+  size?: 'medium' | 'large';
+}
+
+const Spinner = ({ size = 'medium' }: SpinnerProps) => {
   return (
     <figure
-      {...stylex.props(styles.spinner)}
+      {...stylex.props(styles.spinner(size))}
       role="status"
       aria-label="Loading"
     >
-      <div {...stylex.props(styles.centerCircle)} />
+      <div {...stylex.props(styles.centerCircle(size))} />
       {[0, 1, 2, 3].map((index) => (
-        <div {...stylex.props(styles.circle(index))} key={index} />
+        <div {...stylex.props(styles.circle(size, index))} key={index} />
       ))}
     </figure>
   );
@@ -31,18 +35,18 @@ const rotateAnimation = stylex.keyframes({
 });
 
 const styles = stylex.create({
-  spinner: {
+  spinner: (size: 'medium' | 'large') => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    width: '50px',
-    height: '50px',
-  },
-  circle: (delay: number) => ({
+    width: `${sizeMap[size].spinner}px`,
+    height: `${sizeMap[size].spinner}px`,
+  }),
+  circle: (size: 'medium' | 'large', delay: number) => ({
     position: 'absolute',
-    width: '8px',
-    height: '8px',
+    width: `${sizeMap[size].circle}px`,
+    height: `${sizeMap[size].circle}px`,
     backgroundColor: '#F5B343',
     borderRadius: '50%',
     animationName: rotateAnimation,
@@ -52,10 +56,15 @@ const styles = stylex.create({
     animationFillMode: 'forwards',
     animationDelay: `${-1.5 * delay}s`,
   }),
-  centerCircle: {
-    width: '16px',
-    height: '16px',
+  centerCircle: (size: 'medium' | 'large') => ({
+    width: `${sizeMap[size].centerCircle}px`,
+    height: `${sizeMap[size].centerCircle}px`,
     backgroundColor: '#F5B343',
     borderRadius: '50%',
-  },
+  }),
 });
+
+const sizeMap = {
+  medium: { spinner: 50, circle: 8, centerCircle: 16 },
+  large: { spinner: 70, circle: 10, centerCircle: 20 },
+};
