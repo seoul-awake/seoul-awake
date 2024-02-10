@@ -24,7 +24,7 @@ const Map = () => {
       <Script
         type="text/javascript"
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP}`}
-        onReady={initializeMap}
+        onLoad={initializeMap}
       />
       <div id="map" {...stylex.props(styles.map)} />
     </>
@@ -33,19 +33,8 @@ const Map = () => {
 
 export default Map;
 
-const scale = stylex.keyframes({
-  from: { transform: 'scales(0)' },
-  to: { transform: 'scales(1)' },
-});
-
 const styles = stylex.create({
   map: {
     minHeight: '100vh',
-  },
-  icon: {
-    animationName: scale,
-    animationDuration: '2s',
-    animationIterationCount: 'infinite',
-    animationTimingFunction: 'linear',
   },
 });
