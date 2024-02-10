@@ -1,8 +1,7 @@
-import './globals.css';
+import '@/styles/globals.css';
 
 import * as stylex from '@stylexjs/stylex';
 import type { Metadata } from 'next';
-import { Aside } from './_components';
 
 export const metadata = {
   title: 'Seoul Awake',
@@ -17,7 +16,6 @@ export default function RootLayout({
   return (
     <html {...stylex.props(styles.html)} lang="ko">
       <body>
-        <Aside />
         <main>{children}</main>
       </body>
     </html>
