@@ -1,4 +1,0 @@
-type Mutation {
-    createCafe(name: String!): Int
-    checkCafe(id: ID!): Boolean
-}

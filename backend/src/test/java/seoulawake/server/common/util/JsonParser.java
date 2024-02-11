@@ -1,4 +1,4 @@
-package com.seoulawake.backend.common.util;
+package seoulawake.server.common.util;
 
 import java.io.UnsupportedEncodingException;
 
@@ -8,12 +8,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 class JsonParser {
 	private static final ObjectMapper mapper = new ObjectMapper();
+
+	private JsonParser() {
+	}
 
 	@FunctionalInterface
 	interface ResultContentSupplier {

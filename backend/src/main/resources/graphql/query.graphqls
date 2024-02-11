@@ -1,4 +1,0 @@
-type Query {
-    getCafe(name: String!): Cafe
-    getCafes: [Cafe]
-}
