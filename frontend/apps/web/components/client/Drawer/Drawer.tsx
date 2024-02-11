@@ -1,7 +1,6 @@
 'use client';
 
 import { MODAL, useModal } from '@/hooks';
-import { animations } from '@/styles/index.stylex';
 import * as stylex from '@stylexjs/stylex';
 import { HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
@@ -56,6 +55,26 @@ export default Drawer;
 
 const DARK = '@media (prefers-color-scheme: dark)';
 
+const fadeIn = stylex.keyframes({
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+});
+
+const slideInLeft = stylex.keyframes({
+  from: { transform: 'translateX(0)' },
+  to: { transform: 'translateX(-100%)' },
+});
+
+const fadeOut = stylex.keyframes({
+  from: { opacity: 1 },
+  to: { opacity: 0 },
+});
+
+const slideOutLeft = stylex.keyframes({
+  from: { transform: 'translateX(-100%)' },
+  to: { transform: 'translateX(0)' },
+});
+
 const styles = stylex.create({
   modalContainer: {
     position: 'fixed',
@@ -98,22 +117,22 @@ const styles = stylex.create({
     },
   },
   modalContainerFadeIn: {
-    animationName: animations.fadeIn,
+    animationName: fadeIn,
     animationDuration: '0.2s',
     animationFillMode: 'forwards',
   },
   modalContainerFadeOut: {
-    animationName: animations.fadeOut,
+    animationName: fadeOut,
     animationDuration: '0.2s',
     animationFillMode: 'forwards',
   },
   modalWrapSlideIn: {
-    animationName: animations.slideInLeft,
+    animationName: slideInLeft,
     animationDuration: '0.2s',
     animationFillMode: 'forwards',
   },
   modalWrapSlideOut: {
-    animationName: animations.slideOutLeft,
+    animationName: slideOutLeft,
     animationDuration: '0.2s',
     animationFillMode: 'forwards',
   },
