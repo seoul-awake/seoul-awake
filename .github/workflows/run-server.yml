@@ -1,0 +1,28 @@
+name: run server
+
+on:
+  workflow_run:
+    workflows:
+      - "release server"
+    types:
+      - completed
+
+env:
+  SERVER_NAME: awake-server
+
+jobs:
+  run-server:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: pull image and rerun w/ ssh command
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_IMAGE_TAG }}
+            docker ps -aq --filter name=${{ env.SERVER_NAME }} | xargs docker stop | xargs docker rm
+            docker run --name ${{ env.SERVER_NAME }} --restart=always -dp 8080:8080 ${{ secrets.DOCKER_IMAGE_TAG }}
+            docker images -q --filter dangling=true | xargs docker rmi
