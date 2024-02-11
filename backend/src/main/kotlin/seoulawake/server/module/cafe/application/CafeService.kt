@@ -2,11 +2,11 @@ package seoulawake.server.module.cafe.application
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import seoulawake.server.global.extension.entityNotFound
 import seoulawake.server.module.cafe.domain.Address
 import seoulawake.server.module.cafe.domain.Cafe
 import seoulawake.server.module.cafe.domain.CafeRepository
 import seoulawake.server.module.cafe.domain.Coordinates
+import seoulawake.server.module.cafe.dto.CafeDetails
 import seoulawake.server.module.cafe.dto.RegisterCafe
 
 @Service
@@ -22,7 +22,16 @@ class CafeService(
     cafeRepository.save(cafe)
   }
 
-  fun loadCafeByName(name: String): Cafe {
-    return cafeRepository.findByName(name) ?: entityNotFound()
+  fun loadAllCafes(): List<CafeDetails> {
+    return cafeRepository.findAll().map {
+      CafeDetails(
+        it.name,
+        it.address.address,
+        it.address.roadAddress,
+        it.coordinates.latitude,
+        it.coordinates.longitude,
+        it.status.verified
+      )
+    }.toList()
   }
 }

@@ -1,6 +1,5 @@
 package seoulawake.server.module.cafe.domain
 
-import net.jqwik.api.Arbitraries
 import org.assertj.core.api.Assertions.assertThatNoException
 import org.junit.jupiter.api.RepeatedTest
 import org.junit.jupiter.params.ParameterizedTest
@@ -15,12 +14,8 @@ internal class AddressTest : FixtureSupport() {
   @RepeatedTest(100)
   fun `주소 생성 성공`() {
     // given
-    val randomString = sut.giveMeBuilder(String::class.java)
-      .set(Arbitraries.strings().ofMinLength(1).alpha())
-      .build()
-
-    val address: String = randomString.sample()
-    val roadAddress: String = randomString.sample()
+    val address: String = randomString()
+    val roadAddress: String = randomString()
 
     // when, then
     assertThatNoException().isThrownBy {
