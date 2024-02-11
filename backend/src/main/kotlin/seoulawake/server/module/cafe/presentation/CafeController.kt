@@ -11,6 +11,14 @@ import seoulawake.server.module.cafe.dto.RegisterCafe
 class CafeController(
   private val cafeService: CafeService
 ) {
+
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  fun getAll(): ApiResult<*> {
+    val response = cafeService.loadAllCafes()
+    return ApiResult.ok(response)
+  }
+
   @PostMapping
   @ResponseStatus(HttpStatus.OK)
   fun register(@RequestBody request: RegisterCafe): ApiResult<*> {
