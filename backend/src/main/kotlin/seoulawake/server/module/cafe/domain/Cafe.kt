@@ -20,7 +20,7 @@ class Cafe(
   var coordinates: Coordinates,
 
   @Embedded
-  val status: Status = Status()
+  var status: Status = Status()
 ) : BaseEntity() {
   init {
     validate(this.name.isNotBlank()) { PARAMETER_VIOLATION_ERROR }

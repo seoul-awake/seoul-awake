@@ -1,5 +1,6 @@
 package seoulawake.server.global.support
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,7 +23,10 @@ import org.springframework.web.filter.CharacterEncodingFilter
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 abstract class ApiTestSupport : FixtureSupport() {
   @Autowired
-  private lateinit var mockMvc: MockMvc
+  protected lateinit var mockMvc: MockMvc
+
+  @Autowired
+  protected lateinit var objectMapper: ObjectMapper
 
   @BeforeEach
   fun setup(

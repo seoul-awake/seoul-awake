@@ -1,8 +1,8 @@
 package seoulawake.server.module.cafe.domain
 
-import com.navercorp.fixturemonkey.kotlin.giveMeOne
+import net.jqwik.api.Arbitraries
 import org.assertj.core.api.Assertions.assertThatNoException
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.RepeatedTest
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -12,11 +12,15 @@ import seoulawake.server.global.support.FixtureSupport
 
 internal class AddressTest : FixtureSupport() {
 
-  @Test
+  @RepeatedTest(100)
   fun `주소 생성 성공`() {
     // given
-    val address: String = sut.giveMeOne()
-    val roadAddress: String = sut.giveMeOne()
+    val randomString = sut.giveMeBuilder(String::class.java)
+      .set(Arbitraries.strings().ofMinLength(1).alpha())
+      .build()
+
+    val address: String = randomString.sample()
+    val roadAddress: String = randomString.sample()
 
     // when, then
     assertThatNoException().isThrownBy {

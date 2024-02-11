@@ -46,6 +46,7 @@ dependencies {
   // jasypt
   implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4")
 
+  // kotlin
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
