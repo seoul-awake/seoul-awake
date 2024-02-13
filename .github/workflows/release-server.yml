@@ -1,9 +1,7 @@
 name: release server
 
 on:
-  push:
-    paths:
-      - ./backend/**
+  - push
 
 env:
   GRADLE_VERSION: 8.3
@@ -14,6 +12,9 @@ env:
 jobs:
   push-image:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./backend/**"
 
     steps:
       - name: Checkout Branch
