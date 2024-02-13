@@ -25,8 +25,6 @@ class GlobalExceptionHandler {
   fun handleApplicationException(ex: SeoulAwakeException): ResponseEntity<*> {
     log.error(ex) { "Application Exception Occurs : ${ex.message}" }
 
-    val errorCode = ex.errorCode
-
-    return ApiResult.error(errorCode)
+    return ApiResult.error(ex.errorCode)
   }
 }
