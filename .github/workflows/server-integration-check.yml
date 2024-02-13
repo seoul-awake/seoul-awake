@@ -1,11 +1,5 @@
 on:
-  pull_request:
-    paths:
-      - ./backend/**
-
-permissions:
-  checks: write
-  pull-requests: write
+  - pull_request
 
 env:
   GRADLE_VERSION: 8.3
@@ -16,6 +10,9 @@ env:
 jobs:
   check:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./backend/**"
 
     steps:
       - name: Checkout Branch
