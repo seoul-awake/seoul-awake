@@ -9,8 +9,8 @@ on:
 
 env:
   GRADLE_VERSION: 8.3
-  JAVA_VERSION: '17'
-  JAVA_DISTRIBUTION: 'temurin'
+  JAVA_VERSION: "17"
+  JAVA_DISTRIBUTION: "temurin"
   GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED: true
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "/backend/**"
+        working-directory: ./backend
 
     steps:
       - name: Checkout Branch
