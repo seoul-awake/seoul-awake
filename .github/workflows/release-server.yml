@@ -2,8 +2,10 @@ name: release server
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - ./backend/**
+      - "backend/**"
 
 env:
   GRADLE_VERSION: 8.3
@@ -14,6 +16,9 @@ env:
 jobs:
   push-image:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "/backend/**"
 
     steps:
       - name: Checkout Branch
@@ -25,11 +30,8 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
 
-      - name: Setup Gradle w/ caching
-        uses: gradle/gradle-build-action@v2.9.0
-        with:
-          arguments: clean build
-          gradle-version: ${{ env.GRADLE_VERSION }}
+      - name: Clean Build
+        run: ./backend/gradle clean build
 
       - name: Login Docker Hub
         uses: docker/login-action@v3
@@ -45,4 +47,4 @@ jobs:
           platforms: ${{ secrets.HOST_PLATFORM }}
           build-args: JASYPT_PASSWORD=${{ secrets.JASYPT_PASSWORD }}
           tags: ${{ secrets.DOCKER_IMAGE_TAG }}
-          context: .
+          context: ./backend
