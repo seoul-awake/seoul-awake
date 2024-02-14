@@ -31,7 +31,7 @@ jobs:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
 
       - name: Clean Build
-        run: ./backend/gradle clean build
+        run: ./gradle clean build
 
       - name: Login Docker Hub
         uses: docker/login-action@v3
