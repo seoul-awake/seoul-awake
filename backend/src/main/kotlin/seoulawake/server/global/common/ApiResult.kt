@@ -21,16 +21,9 @@ data class ApiResult<T>(
       return ApiResult("S001", "성공적으로 요청을 수행했습니다.", data)
     }
 
-    fun from(errorCode: ErrorCode): ApiResult<*> {
-      return ApiResult(errorCode.code, errorCode.message, null)
-    }
-
-    fun <T> of(errorCode: ErrorCode, data: T): ApiResult<T> {
-      return ApiResult(errorCode.code, errorCode.message, data)
-    }
-
     fun error(errorCode: ErrorCode): ResponseEntity<*> {
-      return ResponseEntity.status(errorCode.httpStatus).body(from(errorCode))
+      val response = ApiResult(errorCode.code, errorCode.message, null)
+      return ResponseEntity.status(errorCode.httpStatus).body(response)
     }
   }
 }

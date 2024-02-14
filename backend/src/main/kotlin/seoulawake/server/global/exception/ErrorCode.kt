@@ -1,8 +1,7 @@
 package seoulawake.server.global.exception
 
 import org.springframework.http.HttpStatus
-import org.springframework.http.HttpStatus.BAD_REQUEST
-import org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR
+import org.springframework.http.HttpStatus.*
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
@@ -14,6 +13,7 @@ enum class ErrorCode(
   val message: String,
 ) {
   PARAMETER_VIOLATION_ERROR("F001", BAD_REQUEST, "올바르지 않은 데이터입니다."),
+  ALREADY_REGISTERED_CAFE("F002", CONFLICT, "이미 등록된 카페입니다."),
 
   INTERNAL_ERROR("E001", INTERNAL_SERVER_ERROR, "서버 내부 오류입니다. 관리자에게 문의주세요."),
 }
