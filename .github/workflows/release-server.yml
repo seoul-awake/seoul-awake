@@ -43,8 +43,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          file: Dockerfile
+          file: backend/Dockerfile
           platforms: ${{ secrets.HOST_PLATFORM }}
           build-args: JASYPT_PASSWORD=${{ secrets.JASYPT_PASSWORD }}
           tags: ${{ secrets.DOCKER_IMAGE_TAG }}
-          context: .
+          context: ./backend
