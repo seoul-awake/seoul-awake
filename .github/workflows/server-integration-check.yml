@@ -30,4 +30,4 @@ jobs:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
       - name: Clean Build
-        run: ./backend/gradle clean build
+        run: ./gradle clean build
